@@ -1,15 +1,15 @@
 package com.verity.block;
 
+import com.verity.VerityMod;
+import com.verity.entity.VerityEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.hand.Hand;
+import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-import com.verity.VerityMod;
 
 public class VerityBoxBlock extends Block {
     public VerityBoxBlock(Settings settings) {
@@ -19,13 +19,7 @@ public class VerityBoxBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            // Spawn Verity entity
-            com.verity.entity.VerityEntity verity = new com.verity.entity.VerityEntity(VerityMod.VERITY, world);
-            verity.setPos(pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5);
-            verity.setTarget(player);
-            world.spawnEntity(verity);
-
-            // Remove the box block
+            spawnVerity(world, pos, player);
             world.breakBlock(pos, false);
         }
         return ActionResult.SUCCESS;
@@ -33,16 +27,17 @@ public class VerityBoxBlock extends Block {
 
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!world.isClient && player != null) {
-            // Spawn Verity when player steps on the box
-            com.verity.entity.VerityEntity verity = new com.verity.entity.VerityEntity(VerityMod.VERITY, world);
-            verity.setPos(pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5);
-            verity.setTarget(player);
-            world.spawnEntity(verity);
-
-            // Remove the box block
+        if (!world.isClient) {
+            spawnVerity(world, pos, player);
             world.breakBlock(pos, false);
         }
         super.onSteppedOn(world, pos, state, player);
+    }
+
+    private void spawnVerity(World world, BlockPos pos, PlayerEntity player) {
+        VerityEntity verity = new VerityEntity(VerityMod.VERITY, world);
+        verity.setPos(pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D);
+        verity.setTarget(player);
+        world.spawnEntity(verity);
     }
 }

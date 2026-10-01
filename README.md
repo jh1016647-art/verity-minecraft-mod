@@ -1,65 +1,26 @@
 # Verity Minecraft Mod
 
-A horror-themed Minecraft mod featuring **Verity**, a hostile AI entity that hunts players with voice chat capabilities.
+A small Fabric mod that adds a hostile AI entity called Verity.
 
-## Features
+Design:
+- A hidden trap block called Verity Box
+- When a player approaches or interacts with it, the box opens and spawns Verity
+- Verity hunts the player and deals melee damage
 
-🎁 **Verity Box Trap**
-- Disguised as an ordinary block
-- When players walk by or interact with it, it opens and releases Verity
-- Designed to catch unsuspecting players
+This is a starter mod intended to be expanded with custom sounds, particles, and better AI.
 
-👾 **Verity Entity**
-- Hostile AI mob that actively hunts players
-- Advanced pathfinding and pursuit behavior
-- Speeds up when detecting nearby players
-- Equipped with melee attacks
-
-🎤 **Voice Chat Integration**
-- Verity can communicate with players through voice
-- Ambient sounds and alerts when detection occurs
-- Designed to work with voice chat mods (e.g., Simple Voice Chat)
-
-## Installation
-
-1. Install [Fabric Loader](https://fabricmc.net/)
-2. Install [Fabric API](https://www.curseforge.com/minecraft/mods/fabric-api)
-3. Download this mod and place it in your `mods` folder
-4. Launch Minecraft with the Fabric profile
-
-## Usage
-
-- Place a **Verity Box** block in your world
-- When a player approaches or steps on it, the box opens
-- Verity spawns and aggressively hunts the player
-- Survive and escape!
-
-## Voice Chat
-
-For full voice chat integration:
-1. Install [Simple Voice Chat](https://www.curseforge.com/minecraft/mods/simple-voice-chat)
-2. Verity will communicate with players through the mod's system
-
-## Configuration
-
-Edit `verity.properties` to customize:
-- Verity spawn rate and health
-- Attack damage
-- Detection range
-- Voice chat frequency
-
-## Building
+## Build
 
 ```bash
 ./gradlew build
 ```
 
-The compiled jar will be in `build/libs/`
+## Run in dev
 
-## License
+```bash
+./gradlew runClient
+```
 
-MIT License - Feel free to use and modify!
+## Repo
 
-## Disclaimer
-
-This mod is designed to be scary and challenging. Play at your own risk!
+https://github.com/jh1016647-art/verity-minecraft-mod

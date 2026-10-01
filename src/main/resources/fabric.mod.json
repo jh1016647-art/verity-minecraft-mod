@@ -2,24 +2,22 @@
   "schemaVersion": 1,
   "id": "verity",
   "version": "${version}",
-  "name": "Verity Mod",
-  "description": "A hostile AI entity that spawns from boxes and can voice chat with players",
-  "authors": ["Your Name"],
-  "contact": {},
+  "name": "Verity",
+  "description": "A hostile AI mob that wakes up when a player passes a box trap.",
+  "authors": [
+    "Copilot"
+  ],
   "license": "MIT",
-  "icon": "assets/verity/icon.png",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
       "com.verity.VerityMod"
     ]
   },
-  "mixins": [
-    "verity.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraftVersion}",
+    "minecraft": "~${minecraft_version}",
     "java": ">=17",
     "fabric-api": "*"
   }

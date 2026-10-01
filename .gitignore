@@ -6,14 +6,10 @@ build/
 .idea/
 .vscode/
 *.iml
-*.iws
-*.ipr
 
-# Fabric
+# Minecraft/Fabric
 run/
 
-# Mac
+# OS
 .DS_Store
-
-# Windows
 Thumbs.db
